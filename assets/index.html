@@ -3,10 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <title></title>
+    <meta name="author" content="Darren Milleza" />
+    <meta
+      name="description"
+      content="Ebay fee calculator to let seller know their profit. "
+    />
+    <meta name="keywords" content="Ebay, calculator, fees" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Ebay Fee Calc</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Ebay Fee Calculator</h1>
+    </header>
+    <main>
+      <div class="formBox">
+        <form action="">
+          <div class="inputBox">
+            <label for="quantity">Quantity</label>
+            <input id="quantity" name="quantity" type="number" />
+          </div>
+          <div class="inputBox">
+            <label for="price">Price</label
+            ><input id="price" name="price" type="text" />
+          </div>
+          <div class="inputBox">
+            <label for="shipping">Shipping</label
+            ><input id="shipping" name="shipping" type="text" />
+          </div>
+          <div class="inputBox">
+            <label for="tax">Sales Tax</label
+            ><input id="tax" name="tax" type="text" />
+          </div>
+          <div class="inputBox">
+            <label for="shipCosts">Cost to ship</label>
+            <input id="shipCosts" name="shipCosts" type="text" />
+          </div>
+          <div class="buttons">
+            <button type="submit">Submit</button>
+            <button type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="basedBox">
+        <p>
+          Fees based on: <br />
+          <span class="basedOn"></span>(buyer paid)
+        </p>
+      </div>
+      <div class="feeBox">
+        <div class="sellingFee">
+          <p>Ebay selling fee</p>
+          <div class="sellfeeTotal">
+            <span class="basedOn">x 13.25%</span>
+          </div>
+        </div>
+        <div class="discountBox">
+          <p>Top Rated Seller Discount</p>
+          <p class="Total"><span class="basedOn">x 13.25%</span></p>
+        </div>
+        <p class="finalFee">Final value fee <span>-$0.30</span></p>
+
+        <p class="feeAmount">Total Fees<span></span></p>
+      </div>
+      <div class="netBox">
+        <p>List price<span class="listPrice"></span></p>
+        <p>Total fees<span class="feeAmount"></span></p>
+        <p>Cost to ship<span class="cost2Ship"></span></p>
+        <p>Net Amount <span class="netAmount"></span></p>
+      </div>
+    </main>
+    <footer>
+      <div class="aboutBox">
+        <p>About</p>
+        <p>This application</p>
+      </div>
+      <div class="contactBox">
+        <p>Contact</p>
+        <p>github:</p>
+      </div>
+    </footer>
+  </body>
 </html>

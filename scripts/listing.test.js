@@ -10,6 +10,7 @@ describe("listing", () => {
     it("should contain a 'quantity' property with number datatype when called with the 'new' keyword", () => {
       const obj = new listing();
       expect(obj).toHaveProperty("quantity");
+
       expect(typeof obj.quantity).toBe("number");
     });
 

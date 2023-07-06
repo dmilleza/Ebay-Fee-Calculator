@@ -4,12 +4,12 @@
 
 html {
   box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
   background-color: #00000042;
-  margin: 0;
-  padding: 0;
 }
 
 header {
@@ -21,24 +21,30 @@ header {
 
 .formBox {
   max-width: 15em;
-  margin: 0 auto 10px;
+  margin: 0 auto 2em;
 }
 
 input {
   max-width: 7em;
-  border-radius: 5px;
   margin-bottom: 1em;
-  height: 1.5em;
 }
 
 main {
   max-width: 18em;
-  margin: 0 auto;
+  margin: 0 auto 4em;
+  min-height: 80vh;
 }
 
-.inputBox {
+.underInputs {
+  display: none;
+}
+.inputBox,
+.ratedBox,
+.ratedChoices {
   display: flex;
   justify-content: space-between;
+}
+.inputBox {
   font-size: 1.5em;
 }
 
@@ -67,6 +73,7 @@ button {
 .finalFee span {
   color: green;
   position: relative;
+  margin-left: 1em;
 }
 
 .finalFee span::after {
@@ -82,9 +89,127 @@ button {
 .feeBox > p,
 .netBox > p {
   text-align: right;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .feeBox {
   border-bottom: 2px solid black;
+}
+
+[name="quantity"] {
+  width: 89px;
+  border: 2px solid black;
+  border-radius: 7px;
+  height: 20px;
+  padding-left: 5px;
+}
+
+.money,
+.taxBox {
+  display: flex;
+}
+
+.money input {
+  max-width: 73px;
+  border: 2px solid black;
+  /* border-left: 0; */
+  font-size: 0.9rem;
+  /* border-radius: 0 7px 7px 0; */
+  min-height: 20px;
+}
+
+.money input {
+  border-radius: 0 7px 7px 0;
+  border-left: 0;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.currency,
+.percent {
+  font-size: 0.8em;
+  background: white;
+  border: 2px solid black;
+  /* border-right: 0; */
+  height: 22px;
+  /* padding: 0 5px; */
+  /* border-radius: 7px 0 0 7px; */
+}
+
+#tax {
+  text-align: right;
+  min-height: 20px;
+  min-width: 66.6px;
+  border: 2px solid black;
+  border-right: 0;
+  border-radius: 7px 0 0 7px;
+}
+
+.currency {
+  border-radius: 7px 0 0 7px;
+  border-right: 0;
+  padding: 0 5px;
+}
+
+.percent {
+  border-left: 0;
+  border-radius: 0 7px 7px 0;
+  padding: 0 5px;
+}
+
+.ratedBox > p,
+[type="radio"] {
+  margin: 0;
+}
+
+.ratedChoices {
+  min-width: 100px;
+}
+
+.ratedBox {
+  margin-bottom: 1em;
+  font-size: 1.1em;
+}
+
+.sellerDiscount1,
+.sellFeeTotal1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sellerDiscount2,
+.sellFeeTotal2 {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  max-width: 200px;
+}
+
+.sellFeeTotal1 > *,
+.sellFeeTotal2 > *,
+.sellerDiscount1 > *,
+.sellerDiscount2 > * {
+  margin: 0;
+}
+
+.aboutBox > p:first-child,
+.contactBox > p:first-child {
+  max-width: 4em;
+  border: 1px solid red;
+  margin: 0 auto 5px;
+  text-align: center;
+}
+
+.aboutBox > p:nth-child(2) {
+  border: 1px solid green;
+  max-width: 19em;
+  margin: 0 auto 20px;
+}
+
+.contactBox > p:nth-child(2) {
+  margin: 0 auto 20px;
+  max-width: 6em;
+  border: 1px solid green;
 }

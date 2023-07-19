@@ -28,11 +28,15 @@ function submitForm(e) {
 
   // second listing method
   const based = document.querySelectorAll(".basedOn");
-  based.forEach((el) => (el.textContent = soldItem.basedOn()));
+  const before = soldItem.basedOn();
+  const after = soldItem.hundredthsplace(before);
+  based.forEach((el) => (el.textContent = after));
 
   // third listing method
   const eSell = document.querySelectorAll(".eSellFee");
-  eSell.forEach((el) => (el.textContent = soldItem.eSellFee()));
+  const before2 = soldItem.eSellFee();
+  const after2 = soldItem.hundredthsplace(before2);
+  eSell.forEach((el) => (el.textContent = after2));
 
   // if seller is not top rated, don't display discount calculations
   const discountBox = document.querySelector(".discountBox");
@@ -40,25 +44,33 @@ function submitForm(e) {
     discountBox.style.display = "block";
     // fourth listing method
     const discount = document.querySelector(".discountTotal");
-    discount.textContent = soldItem.ratedDiscount();
+    const before3 = soldItem.ratedDiscount();
+    const after3 = soldItem.hundredthsplace(before3);
+    discount.textContent = after3;
   } else {
     discountBox.style.display = "none";
   }
 
   // fifth listing method
   const totalFee = document.querySelectorAll(".feeAmount");
-  totalFee.forEach((el) => (el.textContent = soldItem.totalFees()));
+  const before4 = soldItem.totalFees();
+  const after4 = soldItem.hundredthsplace(before4);
+  totalFee.forEach((el) => (el.textContent = "$" + after4));
 
   // first listing method
   const listPrice = document.querySelector(".listPrice");
-  listPrice.textContent = soldItem.beforeTax();
+  const before5 = soldItem.beforeTax();
+  const after5 = soldItem.hundredthsplace(before5);
+  listPrice.textContent = "$" + after5;
 
   const cost2Ship = document.querySelector(".cost2Ship");
-  cost2Ship.textContent = soldItem.cost;
+  cost2Ship.textContent = "$" + soldItem.cost.toFixed(2);
 
   // sixth listing method
   const net = document.querySelector(".netAmount");
-  net.textContent = soldItem.netAmount();
+  const before6 = soldItem.netAmount();
+  const after6 = soldItem.hundredthsplace(before6);
+  net.textContent = "$" + after6;
 }
 
 function listing(
@@ -115,5 +127,29 @@ function listing(
   // returns amount seller nets after fees and printing the shipping label
   this.netAmount = function () {
     return Number((this.beforeTax() - this.totalFees() - this.cost).toFixed(2));
+  };
+
+  //  if number has only one or no decimal place, this function turns 3.4 and 3 into 3.40 because
+  //  $3.40 looks better
+  this.hundredthsplace = function (checking) {
+    const nowString = checking.toString();
+    const nowArray = nowString.split("");
+
+    // for a number with no decimals
+    if (!nowArray.includes(".")) {
+      nowArray.push(".00");
+      const joined = nowArray.join("");
+      return joined;
+
+      // for a number with only one decimal
+    } else if (nowString[nowString.length - 2] == ".") {
+      nowArray.push("0");
+      const joined = nowArray.join("");
+      return joined;
+
+      // if number already has two decimal places
+    } else {
+      return checking;
+    }
   };
 }

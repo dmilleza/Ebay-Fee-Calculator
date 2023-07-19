@@ -1,107 +1,102 @@
 :root {
-  --box: grey;
+  --box: rgb(29, 29, 29);
+  --app: rgb(18, 18, 18);
+  --text1: rgb(229, 229, 229);
+  --text2: rgb(146, 146, 146);
+  --prompt: "Prompt", sans-serif;
+  --robot: "Roboto Condensed", sans-serif;
+  --open: "Open Sans", sans-serif;
 }
 
 html {
   box-sizing: border-box;
+  color: var(--text1);
   margin: 0px;
   padding: 0px;
 }
 
 body {
-  background-color: #00000042;
+  background-color: var(--app);
+  margin: 0px;
+  padding: 0px;
 }
 
+/* || Header  */
+
 header {
-  min-height: 5em;
+  font-family: var(--prompt);
+  margin-top: 3em;
+  min-height: 4em;
   text-align: center;
-  border-bottom: 5px solid black;
-  margin-bottom: 2em;
+}
+
+hr {
+  background-image: linear-gradient(
+    to right,
+    rgb(54, 53, 53),
+    rgb(229, 229, 229),
+    rgb(54, 53, 53)
+  );
+  border: 0;
+  height: 2px;
+  margin-bottom: 3em;
+  max-width: 15em;
+}
+
+h1 span {
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.535);
+}
+
+h1 span:nth-child(1) {
+  color: green;
+}
+
+h1 span:nth-child(2) {
+  color: yellow;
+}
+
+h1 span:nth-child(3) {
+  color: blue;
+}
+
+h1 span:nth-child(4) {
+  color: red;
+}
+
+/*  || Inputs and Buttons */
+
+main {
+  font-family: var(--robot);
+  margin: 0 auto 4em;
+  max-width: 18em;
+  min-height: 500px;
 }
 
 .formBox {
-  max-width: 15em;
+  background-color: var(--box);
   margin: 0 auto 2em;
+  max-width: 15em;
+  padding: 1.5em;
 }
 
-input {
-  max-width: 7em;
-  margin-bottom: 1em;
-}
-
-main {
-  max-width: 18em;
-  margin: 0 auto 4em;
-  min-height: 80vh;
-}
-
-.underInputs {
-  display: none;
-}
 .inputBox,
 .ratedBox,
 .ratedChoices {
   display: flex;
   justify-content: space-between;
 }
-.inputBox {
+
+label {
   font-size: 1.5em;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-  max-width: 6em;
-  margin: 5px auto 0;
-  row-gap: 0.5em;
-}
-
-button {
-  font-size: 1.5em;
-}
-
-.basedBox {
-  text-align: center;
-  border: 2px solid black;
-}
-
-.sellingFee > p:nth-child(2),
-.discountBox > p:nth-child(2) {
-  margin-left: 10px;
-}
-
-.finalFee span {
-  color: green;
-  position: relative;
-  margin-left: 1em;
-}
-
-.finalFee span::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  right: 0px;
-  height: 100%;
-  width: 100%;
-  border-bottom: 2px solid black;
-}
-
-.feeBox > p,
-.netBox > p {
-  text-align: right;
-  /* margin-right: 10px; */
-}
-
-.feeBox {
-  border-bottom: 2px solid black;
 }
 
 [name="quantity"] {
-  width: 89px;
   border: 2px solid black;
   border-radius: 7px;
   height: 20px;
   padding-left: 5px;
+  width: 87px;
 }
 
 .money,
@@ -109,68 +104,158 @@ button {
   display: flex;
 }
 
-.money input {
-  max-width: 73px;
-  border: 2px solid black;
-  /* border-left: 0; */
-  font-size: 0.9rem;
-  /* border-radius: 0 7px 7px 0; */
-  min-height: 20px;
-}
-
-.money input {
-  border-radius: 0 7px 7px 0;
-  border-left: 0;
+input {
+  font-family: var(--robot);
+  font-size: initial;
+  margin-bottom: 1em;
+  max-width: 7em;
 }
 
 input:focus {
   outline: 0;
 }
 
-.currency,
-.percent {
-  font-size: 0.8em;
-  background: white;
+.money input {
   border: 2px solid black;
-  /* border-right: 0; */
-  height: 22px;
-  /* padding: 0 5px; */
-  /* border-radius: 7px 0 0 7px; */
+  border-left: 0;
+  border-radius: 0 7px 7px 0;
+  max-width: 73px;
+  min-height: 20px;
 }
 
-#tax {
-  text-align: right;
-  min-height: 20px;
-  min-width: 66.6px;
+.currency,
+.percent {
+  background: white;
   border: 2px solid black;
-  border-right: 0;
-  border-radius: 7px 0 0 7px;
+  color: initial;
+  height: 19px;
+  padding: 1.5px 5px;
 }
 
 .currency {
   border-radius: 7px 0 0 7px;
   border-right: 0;
-  padding: 0 5px;
 }
 
 .percent {
   border-left: 0;
   border-radius: 0 7px 7px 0;
-  padding: 0 5px;
 }
 
-.ratedBox > p,
-[type="radio"] {
-  margin: 0;
+#tax {
+  border: 2px solid black;
+  border-radius: 7px 0 0 7px;
+  border-right: 0;
+  min-height: 20px;
+  min-width: 70.3px;
+  text-align: right;
 }
 
 .ratedChoices {
-  min-width: 100px;
+  min-width: 90px;
+}
+
+.ratedChoices label {
+  font-size: inherit;
 }
 
 .ratedBox {
-  margin-bottom: 1em;
-  font-size: 1.1em;
+  font-size: 1.1rem;
+  margin-bottom: 2em;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 7em;
+  row-gap: 0.7em;
+}
+
+button {
+  background-color: var(--text1);
+  border-radius: 15px;
+  font-family: var(--robot);
+  font-size: 1.5em;
+}
+
+button:hover {
+  background: rgb(187, 187, 187);
+}
+
+button:focus {
+  background: var(--text1);
+}
+
+button:active {
+  background: var(--text2);
+}
+
+/* || Fee calculations */
+
+.underInputs {
+  display: none;
+}
+
+.basedBox {
+  border: 2px solid var(--text2);
+  text-align: center;
+}
+
+.feeBox {
+  border-bottom: 2px solid var(--text1);
+}
+
+.feeBox p.grey:last-child span,
+.netAmount,
+.listPrice {
+  color: var(--text1);
+  margin-left: 5px;
+}
+
+.feeBox p.grey:last-child,
+.netBox p:last-child {
+  font-size: 1.5em;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: rgb(2, 205, 2);
+}
+
+.grey {
+  color: var(--text2);
+}
+
+.sellingFee > p:nth-child(2),
+.discountBox > p:nth-child(2),
+.finalFee span,
+.minus {
+  margin-left: 5px;
+}
+
+.finalFee span,
+.costBox {
+  position: relative;
+}
+
+.finalFee span::after,
+.costBox::after {
+  content: "";
+  border-bottom: 2px solid var(--text1);
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  width: 100%;
+}
+
+.feeBox > p,
+.netBox > p {
+  text-align: right;
 }
 
 .sellerDiscount1,
@@ -182,34 +267,56 @@ input:focus {
 .sellerDiscount2,
 .sellFeeTotal2 {
   display: flex;
-  justify-content: space-around;
   flex: 1;
+  justify-content: space-around;
   max-width: 200px;
 }
 
 .sellFeeTotal1 > *,
 .sellFeeTotal2 > *,
 .sellerDiscount1 > *,
-.sellerDiscount2 > * {
+.sellerDiscount2 > *,
+.ratedBox > p,
+[type="radio"] {
   margin: 0;
+}
+
+.netBox {
+  font-size: 1.2em;
+}
+
+/* || Footer */
+
+footer {
+  background-color: var(--box);
+  padding: 20px;
 }
 
 .aboutBox > p:first-child,
 .contactBox > p:first-child {
-  max-width: 4em;
-  border: 1px solid red;
+  color: var(--text2);
+  font-family: var(--robot);
+  font-weight: 800;
+  font-size: 1.2em;
   margin: 0 auto 5px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .aboutBox > p:nth-child(2) {
-  border: 1px solid green;
-  max-width: 19em;
+  font-family: var(--open);
+  line-height: 1.4;
   margin: 0 auto 20px;
+  max-width: 19em;
 }
 
-.contactBox > p:nth-child(2) {
-  margin: 0 auto 20px;
-  max-width: 6em;
-  border: 1px solid green;
+.images {
+  align-items: center;
+  background-color: var(--text2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 8em;
+  padding: 5px;
 }

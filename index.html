@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Darren Milleza" />
+    <meta
+      name="description"
+      content="Ebay fee calculator to let seller know their profit. "
+    />
+    <meta name="keywords" content="Ebay, calculator, fees" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Prompt:wght@300&family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ebay Fee Calc</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <span>E</span><span>b</span><span>a</span><span>y</span> Fee Calculator
+      </h1>
+    </header>
+    <hr />
+    <main>
+      <div class="formBox">
+        <form action="" id="myForm">
+          <div class="inputBox">
+            <label for="quantity">Quantity</label>
+            <input
+              id="quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              max="99"
+              value="1"
+              required
+            />
+          </div>
+          <div class="inputBox">
+            <label for="price">Price</label>
+            <div class="money">
+              <span class="currency">$</span>
+              <input
+                id="price"
+                name="price"
+                type="number"
+                pattern="/^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/gm"
+                step="0.01"
+                min="0.99"
+                value="19.99"
+                required
+              />
+            </div>
+          </div>
+          <div class="inputBox">
+            <label for="shipping">Shipping</label>
+            <div class="money">
+              <span class="currency">$</span
+              ><input
+                id="shipping"
+                name="shipping"
+                type="number"
+                pattern="/^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/gm"
+                step="0.01"
+                min="0"
+                value="3.99"
+                required
+              />
+            </div>
+          </div>
+          <div class="inputBox">
+            <label for="tax">Sales Tax</label>
+            <div class="taxBox">
+              <input
+                id="tax"
+                name="tax"
+                pattern="/(?!0,?\d)(^\d*\.\d{2}$)/"
+                type="number"
+                step="0.01"
+                value="7.75"
+                min="4.4"
+                max="10"
+                required
+              />
+              <span class="percent">%</span>
+            </div>
+          </div>
+          <div class="inputBox">
+            <label for="shipCosts">Cost to ship</label>
+            <div class="money">
+              <span class="currency">$</span>
+              <input
+                id="shipCosts"
+                pattern="/^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/gm"
+                name="shipCosts"
+                type="number"
+                step="0.01"
+                min="0.25"
+                value="4.00"
+                required
+              />
+            </div>
+          </div>
+          <div class="ratedBox">
+            <p>Top Rated Seller?</p>
+            <div class="ratedChoices">
+              <div>
+                <label for="yes">Yes</label>
+                <input
+                  type="radio"
+                  name="rated"
+                  id="yes"
+                  value="true"
+                  checked
+                />
+              </div>
+              <div>
+                <label for="no">No</label>
+                <input type="radio" name="rated" id="no" value="false" />
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button type="submit">Submit</button>
+            <button type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="underInputs">
+        <div class="basedBox">
+          <p>
+            Fees based on: <br />
+            $<span class="basedOn"> </span> (buyer paid)
+          </p>
+        </div>
+        <div class="feeBox">
+          <div class="sellingFee">
+            <p class="grey">Ebay selling fee</p>
+            <div class="sellFeeTotal1">
+              <div class="sellFeeTotal2">
+                <p>$<span class="basedOn"> </span></p>
+                <p>x</p>
+                <p>13.25%</p>
+                <p>=</p>
+              </div>
+              <p class="red">- $<span class="eSellFee"> </span></p>
+            </div>
+          </div>
+          <div class="discountBox">
+            <p class="grey">Top Rated Seller Discount</p>
+            <div class="sellerDiscount1">
+              <div class="sellerDiscount2">
+                <p>$<span class="eSellFee"> </span></p>
+                <p>x</p>
+                <p>10.0%</p>
+                <p>=</p>
+              </div>
+              <p class="green">+ $<span class="discountTotal"> </span></p>
+            </div>
+          </div>
+          <p class="grey finalFee">
+            Final value fee <span class="red">- $0.30</span>
+          </p>
+          <p class="grey">Total Fees <span class="feeAmount"></span></p>
+        </div>
+        <div class="netBox">
+          <p class="grey">List price <span class="listPrice"></span></p>
+          <p class="grey">
+            Total fees
+            <span class="minus red">- <span class="feeAmount"></span></span>
+          </p>
+          <p class="grey">
+            Cost to ship
+            <span class="minus costBox red"
+              >- <span class="cost2Ship"></span
+            ></span>
+          </p>
+          <p class="grey">Net Amount <span class="netAmount"></span></p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="aboutBox">
+        <p>About</p>
+        <p>
+          Application allows Ebay seller to calculate seller fees and net
+          profit. User submits listing data and then application displays all
+          fees applied to the listing, as well as the net amount the seller
+          makes after fees and shipping costs are applied. This application is
+          useful for predicting how much an Ebay seller will make from selling
+          an item on the platform.
+        </p>
+      </div>
+      <div class="contactBox">
+        <p>Contact</p>
+        <div class="images">
+          <a href="https://github.com/dmilleza"
+            ><img src="./assets/images/25231.png" width="50" height="50"
+          /></a>
+          <a href="mailto:darrenmilleza@gmail.com?subject = Feedback">
+            <img src="./assets/images/3178158.png" width="50" height="50"
+          /></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./scripts/index.js"></script>
+</html>

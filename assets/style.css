@@ -76,7 +76,7 @@ main {
 .formBox {
   background-color: var(--box);
   margin: 0 auto 2em;
-  max-width: 15em;
+  /* max-width: 15em; */
   padding: 1.5em;
 }
 
@@ -96,7 +96,7 @@ label {
   border-radius: 7px;
   height: 20px;
   padding-left: 5px;
-  width: 87px;
+  min-width: 87px;
 }
 
 .money,
@@ -119,8 +119,8 @@ input:focus {
   border: 2px solid black;
   border-left: 0;
   border-radius: 0 7px 7px 0;
-  max-width: 73px;
-  min-height: 20px;
+  max-width: 72px;
+  max-height: 19px;
 }
 
 .currency,
@@ -128,7 +128,7 @@ input:focus {
   background: white;
   border: 2px solid black;
   color: initial;
-  height: 19px;
+  max-height: 18px;
   padding: 1.5px 5px;
 }
 
@@ -146,8 +146,8 @@ input:focus {
   border: 2px solid black;
   border-radius: 7px 0 0 7px;
   border-right: 0;
-  min-height: 20px;
-  min-width: 70.3px;
+  max-height: 19px;
+  min-width: 72px;
   text-align: right;
 }
 
@@ -177,6 +177,7 @@ button {
   border-radius: 15px;
   font-family: var(--robot);
   font-size: 1.5em;
+  color: var(--app);
 }
 
 button:hover {
@@ -200,6 +201,7 @@ button:active {
 .basedBox {
   border: 2px solid var(--text2);
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .feeBox {
@@ -231,7 +233,7 @@ button:active {
 }
 
 .sellingFee > p:nth-child(2),
-.discountBox > p:nth-child(2),
+.discount > p:nth-child(2),
 .finalFee span,
 .minus {
   margin-left: 5px;
@@ -258,13 +260,17 @@ button:active {
   text-align: right;
 }
 
-.sellerDiscount1,
+.hide {
+  display: none;
+}
+
+.discountTotal1,
 .sellFeeTotal1 {
   display: flex;
   justify-content: space-between;
 }
 
-.sellerDiscount2,
+.discountTotal2,
 .sellFeeTotal2 {
   display: flex;
   flex: 1;
@@ -274,8 +280,11 @@ button:active {
 
 .sellFeeTotal1 > *,
 .sellFeeTotal2 > *,
-.sellerDiscount1 > *,
-.sellerDiscount2 > *,
+.discountTotal > *,
+.discountTotal2 > * {
+  margin-bottom: 5px;
+}
+
 .ratedBox > p,
 [type="radio"] {
   margin: 0;
@@ -298,7 +307,7 @@ footer {
   font-family: var(--robot);
   font-weight: 800;
   font-size: 1.2em;
-  margin: 0 auto 5px;
+  margin: 0 auto 10px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -319,4 +328,87 @@ footer {
   margin: 0 auto;
   max-width: 8em;
   padding: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  hr {
+    max-width: 25em;
+  }
+
+  main {
+    min-width: 35em;
+  }
+
+  #myForm {
+    column-gap: 2em;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .inputBox,
+  .ratedBox {
+    flex: 45%;
+    max-width: 240px;
+  }
+
+  .buttons {
+    column-gap: 10px;
+    flex-direction: row;
+    min-width: 15em;
+  }
+
+  button {
+    flex: 1;
+  }
+
+  .underInputs {
+    font-size: 1.2em;
+  }
+
+  .feeBox,
+  .netBox {
+    padding: 10px;
+  }
+
+  .breaku {
+    display: none;
+  }
+
+  .sellingFee,
+  .discount {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+  }
+
+  .sellingFee > *,
+  .discount > * {
+    flex: 1;
+  }
+
+  .sellFeeTotal1 > p,
+  .sellFeeTotal2 > p,
+  .discountTotal1 > p,
+  .discountTotal2 > p {
+    margin: 0;
+  }
+
+  .netBox > * {
+    margin: 20px 0;
+  }
+
+  .twoBoxes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 35em;
+  }
+
+  .images {
+    min-width: 8em;
+  }
 }

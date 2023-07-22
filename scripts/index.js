@@ -23,6 +23,8 @@ function submitForm(e) {
   const underInputs = document.querySelector(".underInputs");
   underInputs.style.display = "block";
 
+  // fixBox();
+
   // gets form inputs and inserts them into a new listing object
   const soldItem = new listing(...data);
 
@@ -39,16 +41,22 @@ function submitForm(e) {
   eSell.forEach((el) => (el.textContent = after2));
 
   // if seller is not top rated, don't display discount calculations
-  const discountBox = document.querySelector(".discountBox");
+  const discountBox = document.getElementById("discount");
   if (soldItem.top == "true") {
-    discountBox.style.display = "block";
+    if (discountBox.className == "hide") {
+      discountBox.className = "discount";
+      console.log(discountBox.className);
+    }
     // fourth listing method
     const discount = document.querySelector(".discountTotal");
     const before3 = soldItem.ratedDiscount();
     const after3 = soldItem.hundredthsplace(before3);
     discount.textContent = after3;
   } else {
-    discountBox.style.display = "none";
+    if (discountBox.className == "discount") {
+      discountBox.className = "hide";
+      console.log(discountBox.className);
+    }
   }
 
   // fifth listing method
@@ -72,6 +80,14 @@ function submitForm(e) {
   const after6 = soldItem.hundredthsplace(before6);
   net.textContent = "$" + after6;
 }
+
+// function fixBox() {
+//   const mediaQuery = window.matchMedia("(min-width: 768px)");
+//   if (mediaQuery.matches) {
+//     const box = document.querySelector(".basedBox");
+//     console.dir(box);
+//   }
+// }
 
 function listing(
   quantity = 1,
